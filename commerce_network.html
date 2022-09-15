@@ -1,0 +1,366 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!-- Bootstrap CSS -->
+
+    <!-- Datatables -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap5.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.2.3/css/buttons.bootstrap5.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.2.3/css/buttons.bootstrap5.min.css">
+
+    <link rel="stylesheet" href="css/modified_datatable.css">
+
+    <!-- Fancybox -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.css" />
+
+    <link rel="stylesheet" href="css/responsive.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/main.css">
+
+    <title>Commerce Network</title>
+
+    <style>
+        .time-select{
+            font-size: 12px;
+        }
+    </style>
+</head>
+
+<body>
+        <div class="load-spinner">
+                <div class="d-flex flex-column position-absolute gap-2"
+                    style="top: 50%; left: 50%; translate: transform(-50%, -50%)">
+                    <div class="spinner-border text-brand-primary" style="height: 3rem; width: 3rem" role="status">
+                        <span class="visually-hidden">Loading...</span>
+                    </div>
+                    <p>Loading</p>
+                </div>
+            </div>
+            
+    <section id="topbar" class="bg-white py-3">
+        
+    </section>
+
+    <section id="main-page">
+        <div class="d-flex g-3 align-items-stretch">
+            <!-- Sidebar -->
+            <div class="bg-light">
+                <div id="sidebar" class="bg-brand-primary h-100">
+                </div>
+            </div>
+            <!-- Sidebar -->
+
+            <div class="bg-light dashboard-box w-100 d-flex">
+
+                <div>
+                <div class="mx-3">
+                <h1 class="fs-2 text-brand-blue mt-4 mb-0 underli">Purchase Orders (EDI 850)</h1>
+                <hr class="text-muted" />
+                </div>
+
+                <div class="card bg-white mx-3 mb-3">
+
+                        <div class="row bg-secondary p-3 w-100 mx-auto rounded-top">
+                                <div class="col-md-4 d-flex align-items-center">
+                                        <select name="time-period" id="time-period" class="form-select time-select">
+                                                <option value="0">1 Aug 2022 - 31 Aug 2022</option>
+                                        </select>
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="text-end">
+                                        <div class="btn border">
+                                            <i class="fa fa-edit text-white" aria-hidden="true"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                  
+                    <div class="table-responsive p-4">
+                        
+                      
+                        <table class="table table-striped align-middle" id="datatable">
+                            <thead>
+                                <tr class="bg-brand-primary text-white">
+                                   
+                                    <th>Order Number</th>
+                                    <th>Sender</th>
+                                    <th>Sales Reporting</th>
+                                    <th>Order Date</th>
+                                    <th>Ship Date</th>
+                                    <th>Invoice Date</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="text-break-none">
+                                        <a href="show_edi_form.html" class="fw-bold" >PO #TESTPODS</a>
+                                    </td>
+                                    <td>American Sanitary Products, Inc.</td>
+                                    <td>
+                                        <div>$1920.56</div>
+                                        <div>
+                                            <div class="bg-info p-1 d-inline-block font-small rounded text-white"
+                                                data-toggle="tooltip" title="In comparison to last month">+12%</div>
+                                            <div class="bg-success p-1 d-inline-block font-small rounded text-white"
+                                                data-toggle="tooltip" title="In comparison to last year">+17%</div>
+                                        </div>
+                                    </td>
+                                    <td>09/09/2020</td>
+                                    <td>09/28/2020</td>
+                                    <td>09/28/2020</td>
+                                    <td>
+                                        <div class="d-flex flex-column align-items-stretch">
+                                            <div class="d-flex d-block">
+                                                <div class="bg-warning d-block w-100 px-2 rounded-start text-center"
+                                                    data-toggle="tooltip"
+                                                    title="Add Purchase Order Status... (Yellow: Pending)">
+                                                    <i class="fa fa-file text-white font-small" aria-hidden="true"></i>
+                                                </div>
+                                                <div class="bg-success d-block w-100 px-2 text-center"
+                                                    data-toggle="tooltip"
+                                                    title="Add Order Acknowledgement Status... (Green: Completed)">
+                                                    <i class="fa fa-check text-white font-small" aria-hidden="true"></i>
+                                                </div>
+                                                <div class="bg-secondary d-block w-100 px-2 text-center"
+                                                    data-toggle="tooltip"
+                                                    title="Add Invoicing Status... (Grey: Unknown)">
+                                                    <i class="fa fa-file-invoice-dollar text-white font-small"
+                                                        aria-hidden="true"></i>
+                                                </div>
+                                                <div class="bg-secondary d-block w-100 px-2 rounded-end text-center"
+                                                    data-toggle="tooltip" title="Add Tracking Status...">
+                                                    <i class="fa fa-location text-white font-small"
+                                                        aria-hidden="true"></i>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div
+                                                    class="bg-info d-block mt-1 p-1 px-2 rounded text-white font-small text-center">
+                                                    In Progress
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                        <td class="text-break-none">
+                                            <a  href="show_edi_form.html" class="fw-bold">PO #77858</a>
+                                        </td>
+                                        <td>Medline</td>
+                                        <td>
+                                            <div>$2847.83</div>
+                                            <div>
+                                                <div class="bg-danger p-1 d-inline-block font-small rounded text-white"
+                                                    data-toggle="tooltip" title="In comparison to last month">-1%</div>
+                                                <div class="bg-success p-1 d-inline-block font-small rounded text-white"
+                                                    data-toggle="tooltip" title="In comparison to last year">+23%</div>
+                                            </div>
+                                        </td>
+                                        <td>07/19/2020</td>
+                                        <td>08/21/2020</td>
+                                        <td>09/21/2020</td>
+                                        <td>
+                                            <div class="d-flex flex-column align-items-stretch">
+                                                <div class="d-flex d-block">
+                                                    <div class="bg-success border-end d-block w-100 px-2 rounded-start text-center"
+                                                        data-toggle="tooltip"
+                                                        title="Purchase Order Awknowledge has been created.">
+                                                        <i class="fa fa-file text-white font-small" aria-hidden="true"></i>
+                                                    </div>
+                                                    <div class="bg-secondary border-end d-block w-100 px-2 text-center"
+                                                        data-toggle="tooltip"
+                                                        title="Add Order Acknowledgement Status... (Green: Completed)">
+                                                        <i class="fa fa-check text-white font-small" aria-hidden="true"></i>
+                                                    </div>
+                                                    <div class="bg-success border-end d-block w-100 px-2 text-center"
+                                                        data-toggle="tooltip"
+                                                        title="Invoice has been created.">
+                                                        <i class="fa fa-file-invoice-dollar text-white font-small"
+                                                            aria-hidden="true"></i>
+                                                    </div>
+                                                    <div class="bg-secondary d-block w-100 px-2 rounded-end text-center"
+                                                        data-toggle="tooltip" title="Add Tracking Status...">
+                                                        <i class="fa fa-location text-white font-small"
+                                                            aria-hidden="true"></i>
+                                                    </div>
+                                                </div>
+                                                <div>
+                                                    <div
+                                                        class="bg-success d-block mt-1 p-1 px-2 rounded text-white font-small text-center">
+                                                        Completed
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                            <td class="text-break-none">
+                                                <a  href="show_edi_form.html" class="fw-bold" >PO #77858</a>
+                                            </td>
+                                            <td>Owens & Minor</td>
+                                            <td>
+                                                <div>$1463.03</div>
+                                                <div>
+                                                    <div class="bg-success p-1 d-inline-block font-small rounded text-white"
+                                                        data-toggle="tooltip" title="In comparison to last month">+0.5%</div>
+                                                    <div class="bg-secondary p-1 d-inline-block font-small rounded text-white"
+                                                        data-toggle="tooltip" title="In comparison to last year">+0%</div>
+                                                </div>
+                                            </td>
+                                            <td>29/09/2020</td>
+                                            <td>5/12/2020</td>
+                                            <td>12/12/2020</td>
+                                            <td>
+                                                <div class="d-flex flex-column align-items-stretch">
+                                                    <div class="d-flex d-block">
+                                                        <div class="bg-success border-end d-block w-100 px-2 rounded-start text-center"
+                                                            data-toggle="tooltip"
+                                                            title="Purchase Order Awknowledge has been created.">
+                                                            <i class="fa fa-file text-white font-small" aria-hidden="true"></i>
+                                                        </div>
+                                                        <div class="bg-secondary border-end d-block w-100 px-2 text-center"
+                                                            data-toggle="tooltip"
+                                                            title="Add Order Acknowledgement Status... (Green: Completed)">
+                                                            <i class="fa fa-check text-white font-small" aria-hidden="true"></i>
+                                                        </div>
+                                                        <div class="bg-success border-end d-block w-100 px-2 text-center"
+                                                            data-toggle="tooltip"
+                                                            title="Invoice is on pending.">
+                                                            <i class="fa fa-file-invoice-dollar text-white font-small"
+                                                                aria-hidden="true"></i>
+                                                        </div>
+                                                        <div class="bg-secondary d-block w-100 px-2 rounded-end text-center"
+                                                            data-toggle="tooltip" title="Add Tracking Status...">
+                                                            <i class="fa fa-location text-white font-small"
+                                                                aria-hidden="true"></i>
+                                                        </div>
+                                                    </div>
+                                                    <div>
+                                                        <div
+                                                            class="bg-success d-block mt-1 p-1 px-2 rounded text-white font-small text-center">
+                                                            Completed
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                                <td class="text-break-none">
+                                                    <a  href="show_edi_form_new.html" class="fw-bold" >PO #67518</a>
+                                                    <a class="rounded-pill bg-brand-primary font-small p-1 text-decoration-none text-white">New</a>
+                                                </td>
+                                                <td>American Sanitary Products, Inc.</td>
+                                                <td>
+                                                    <div>$3931.92</div>
+                                                    <div>
+                                                        <div class="bg-success p-1 d-inline-block font-small rounded text-white"
+                                                            data-toggle="tooltip" title="In comparison to last month">+0.5%</div>
+                                                        <div class="bg-secondary p-1 d-inline-block font-small rounded text-white"
+                                                            data-toggle="tooltip" title="In comparison to last year">+0%</div>
+                                                    </div>
+                                                </td>
+                                                <td>22/09/2020</td>
+                                                <td>-</td>
+                                                <td>-</td>
+                                                <td>
+                                                    <div class="d-flex flex-column align-items-stretch">
+                                                        <div class="d-flex d-block">
+                                                            <div class="bg-warning border-end d-block w-100 px-2 rounded-start text-center"
+                                                                data-toggle="tooltip"
+                                                                title="Purchase Order is on pending.">
+                                                                <i class="fa fa-file text-white font-small" aria-hidden="true"></i>
+                                                            </div>
+                                                            <div class="bg-secondary border-end d-block w-100 px-2 text-center"
+                                                                data-toggle="tooltip"
+                                                                title="Add Order Acknowledgement Status... (Green: Completed)">
+                                                                <i class="fa fa-check text-white font-small" aria-hidden="true"></i>
+                                                            </div>
+                                                            <div class="bg-warning border-end d-block w-100 px-2 text-center"
+                                                                data-toggle="tooltip"
+                                                                title="Invoice is on pending.">
+                                                                <i class="fa fa-file-invoice-dollar text-white font-small"
+                                                                    aria-hidden="true"></i>
+                                                            </div>
+                                                            <div class="bg-secondary d-block w-100 px-2 rounded-end text-center"
+                                                                data-toggle="tooltip" title="Add Tracking Status...">
+                                                                <i class="fa fa-location text-white font-small"
+                                                                    aria-hidden="true"></i>
+                                                            </div>
+                                                        </div>
+                                                        <div>
+                                                            <div
+                                                                class="bg-info d-block mt-1 p-1 px-2 rounded text-white font-small text-center">
+                                                                In Progress
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+                <footer class="bg-white py-3">
+                    <div class="container-fluid">
+                        <p class="mb-0 text-center">
+                            &copy; Copyright 2022 GSA Contract Services, LLC.
+                        </p>
+                    </div>
+                </footer>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- jQuery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <!-- Bootstrap JS -->
+
+    <!-- Datatables -->
+    <script src="//cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap5.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.2.3/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.bootstrap5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.colVis.min.js"></script>
+
+    <script src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.html5.min.js"></script>
+
+    <!-- Fancybox -->
+    <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>
+
+    <!-- Components -->
+    <script src="components/topbar.js"></script>
+    <script src="components/sidebar.js"></script>
+
+    <!-- Custom JS -->
+    <script type="module" src="js/main.js"></script>
+</body>
+
+</html>

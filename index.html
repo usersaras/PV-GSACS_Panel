@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!-- Bootstrap CSS -->
+
+    <!-- Datatables -->
+    <link rel="stylesheet" href="//cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css">
+
+    <link rel="stylesheet" href="css/modified_datatable.css">
+
+    <link rel="stylesheet" href="css/responsive.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/main.css">
+
+    <style>
+        #datatable-index_filter {
+            float: left;
+            text-align: left;
+            margin-bottom: 0px !important;
+        }
+
+        #datatable-index_filter label {
+            font-size: 12px;
+        }
+
+        #datatable-index_filter input {
+            padding: 3px;
+            font-size: 12px;
+        }
+
+        #datatable-index_info {
+            display: none;
+        }
+    </style>
+
+    <title>Dashboard</title>
+</head>
+
+<body>
+    <div class="load-spinner">
+        <div class="d-flex flex-column position-absolute gap-2"
+            style="top: 50%; left: 50%; translate: transform(-50%, -50%)">
+            <div class="spinner-border text-brand-primary" style="height: 3rem; width: 3rem" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+            <p>Loading</p>
+        </div>
+    </div>
+
+    <section id="topbar" class="bg-white py-3"></section>
+
+    <section id="main-page" style="height: 100vh; background: grey;">
+        <div class="d-flex g-3 align-items-stretch">
+            <!-- Sidebar -->
+            <div class="bg-light">
+                <div id="sidebar" class="bg-brand-primary h-100">
+                </div>
+            </div>
+            <!-- Sidebar -->
+
+            <div class="bg-light dashboard-box w-100 d-flex">
+                <div class="mx-3  mb-0">
+
+                    <button class="btn btn-brand-primary mt-3" id="viewStats"> <i class="fa fa-eye"
+                            aria-hidden="true"></i> View Stats</button>
+                    <button class="btn btn-brand-primary mt-3" id="hideStats"> <i class="fa fa-eye-slash"
+                            aria-hidden="true"></i> Hide Stats</button>
+
+                    <div id="stats">
+                        <div class="row g-2 mt-2">
+                            <div class="col-xl-4 col-md-12">
+                                <div class="bg-white p-3 rounded rounded-3 quick-view-box">
+                                    <div class="d-flex gap-2 align-items-center justify-content-between">
+                                        <h6 class="mb-0">Value Received</h6>
+                                        <div class="bg-success p-1 px-2 rounded d-inline-block font-small text-white">
+                                            +18%</div>
+                                    </div>
+                                    <p class="mb-0 display-6 fw-bold text-muted mt-3">$86,460</p>
+                                    <p class="mb-0 text-muted">59 Orders</p>
+                                </div>
+                            </div>
+
+                            <div class="col-xl-4 col-md-12">
+                                <div class="bg-white p-3 rounded rounded-3 quick-view-box">
+                                    <div class="d-flex gap-2 align-items-center justify-content-between w-100">
+                                        <h6 class="mb-0">Order Value</h6>
+                                        <div class="bg-success p-1 px-2 rounded d-inline-block font-small text-white">
+                                            +21%</div>
+                                    </div>
+                                    <p class="mb-0 display-6 fw-bold text-muted mt-3">$90,460</p>
+                                    <p class="mb-0 text-muted">59 Orders</p>
+                                </div>
+                            </div>
+
+                            <div class="col-xl-4 col-md-12">
+                                <div class="bg-white p-3 rounded rounded-3 quick-view-box">
+                                    <div class="d-flex gap-2 align-items-center justify-content-between">
+                                        <h6 class="mb-0">Invoiced Sales</h6>
+                                        <div class="bg-danger p-1 px-2 rounded d-inline-block font-small text-white">
+                                            -3%</div>
+                                    </div>
+                                    <p class="mb-0 display-6 fw-bold text-muted mt-3">$85,460</p>
+                                    <p class="mb-0 text-muted">59 Orders</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mx-3 mb-3 mt-1 h-100">
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h6 class="mb-0 text-muted">Order Value - Invoiced Sales (This Month)</h6>
+                                </div>
+                                <div class="card-body">
+                                    <div class="div">
+                                        <label for="displayMonth" class="text-muted">For the month of:</label>
+                                    <select name="#" id="#" class="p-1 bg-white border rounded" autocomplete="off">
+                                            <option value="1">January</option>
+                                            <option value="2">February</option>
+                                            <option value="3">March</option>
+                                            <option value="4">April</option>
+                                            <option value="5">May</option>
+                                            <option value="6">June</option>
+                                            <option value="7">July</option>
+                                            <option value="8">August</option>
+                                            <option value="9" selected="selected">September</option>
+                                            <option value="10" disabled>October</option>
+                                            <option value="11" disabled>November</option>
+                                            <option value="12" disabled>December</option>
+                                    </select>
+                                    </div>
+                                    <canvas id="myAreaChart"></canvas>
+                                    <div id="difference" class="text-end">
+
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card h-100">
+                                <div class="card-header">
+                                    <h6 class="mb-0 text-muted">Recent Orders</h6>
+                                </div>
+                                <div class="card-body">
+                                    <div class="table-responsive">
+                                        <table class="table align-middle" id="datatable-index">
+                                            <thead>
+                                                <tr>
+
+                                                    <th>Order Number</th>
+                                                    <th>Sold To</th>
+                                                    <th>Date</th>
+                                                    <th>Total</th>
+                                                    <th>Status</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td><a href="#">09292900</a></td>
+                                                    <td>
+                                                        <p class="mb-0 fw-bold uppercase">Pamela Johnson</p>
+                                                        <p class="mb-0 text-muted">Department of Justice</p>
+                                                    </td>
+                                                    <td>Aug-29-2022</td>
+                                                    <td>$150.12</td>
+                                                    <td>
+                                                        <div class="d-flex flex-column align-items-stretch">
+                                                            <div class="d-flex d-block">
+                                                                <div
+                                                                    class="bg-warning d-block w-100 px-2 rounded-start text-center">
+                                                                    <i class="fa fa-user text-white font-small"
+                                                                        aria-hidden="true"></i>
+                                                                </div>
+                                                                <div
+                                                                    class="bg-secondary d-block w-100 px-2 text-center">
+                                                                    <i class="fa fa-user text-white font-small"
+                                                                        aria-hidden="true"></i>
+                                                                </div>
+                                                                <div
+                                                                    class="bg-success d-block w-100 px-2 rounded-end text-center">
+                                                                    <i class="fa fa-user text-white font-small"
+                                                                        aria-hidden="true"></i>
+                                                                </div>
+                                                            </div>
+                                                            <div>
+                                                                <div
+                                                                    class="bg-secondary d-block mt-1 p-1 px-2 rounded text-white font-small text-center">
+                                                                    In Progress</div>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <footer class="bg-white py-3">
+                    <div class="container-fluid">
+                        <p class="mb-0 text-center">
+                            &copy; Copyright 2022 GSA Contract Services, LLC.
+                        </p>
+                    </div>
+                </footer>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- jQuery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <!-- Bootstrap JS -->
+
+    <!-- Datatables -->
+    <script src="//cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+
+    <!-- Chart.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+    <script src="js/areaChart.js"></script>
+
+    <!-- Components -->
+    <script src="components/topbar.js"></script>
+    <script src="components/sidebar.js"></script>
+
+    <!-- Custom JS -->
+    <script type="module" src="js/main.js"></script>
+
+     <script src="js/loader.js"></script>
+</body>
+
+</html>

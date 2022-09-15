@@ -1,0 +1,78 @@
+#datatable_filter {
+  margin-bottom: 15px !important;
+}
+
+#datatable_filter input {
+  font-size: .75em;
+}
+
+table {
+  font-size: 0.875em;
+}
+
+table .btn {
+  padding: 7px;
+  font-size: 0.875em;
+}
+
+.dt-buttons .btn-secondary {
+  background-color: white;
+  border: 1px solid #0d6f93;
+  color: #0d6f93;
+}
+
+.dt-buttons .btn-secondary:hover {
+  background: #0d6f93;
+  color: white;
+}
+
+.dt-button-collection {
+  background: white;
+}
+
+.dt-button-collection .dropdown-menu {
+  display: -webkit-box !important;
+  display: -ms-flexbox !important;
+  display: flex !important;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 5px;
+  color: white !important;
+}
+
+.dt-button-collection .dropdown-item {
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  color: #7c7c7d !important;
+  background: #f2f2f2;
+  border-radius: 5px !important;
+}
+
+.dt-button-collection .dropdown-item:hover {
+  background: #f2f2f2;
+  color: #7c7c7d !important;
+  border-radius: 5px !important;
+}
+
+.dt-button-collection .dropdown-item.active {
+  background: #fff;
+  color: #0d6f93 !important;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.dt-button-collection .dropdown-item.active:after {
+  content: ' : \2713';
+}
+
+#datatable_length {
+  display: none;
+}
+
+.pagination .active .page-link {
+  background: #0d6f93 !important;
+  border-color: #0d6f93 !important;
+}
+/*# sourceMappingURL=modified_datatable.css.map */

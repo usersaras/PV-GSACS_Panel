@@ -1,0 +1,251 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.font-small {
+  font-size: 0.675em;
+}
+
+.text-break-none {
+  white-space: nowrap;
+}
+
+.bg-brand-primary {
+  background-color: #0d6f93;
+}
+
+.text-brand-primary {
+  color: #0d6f93;
+}
+
+.btn.bg-brand-blue:hover {
+  background-color: #09526d;
+}
+
+.bg-brand-invoice {
+  background-color: #9accff !important;
+}
+
+.bg-brand-yellow {
+  background-color: #ffff9a !important;
+}
+
+.btn-brand-primary {
+  background: #0d6f93;
+  color: white;
+}
+
+.btn-brand-primary:hover {
+  background: #09526d;
+  color: white;
+}
+
+.btn-outline-brand-primary {
+  border: 1px solid #0d6f93;
+  color: #0d6f93;
+}
+
+.btn-outline-brand-primary:hover {
+  background: #0d6f93;
+  color: white;
+}
+
+.hide-component {
+  display: none !important;
+}
+
+.vw-15 {
+  min-width: 15vw;
+}
+
+.vw-85 {
+  min-width: 85vw;
+}
+
+#topbar .profile-image {
+  height: 35px;
+}
+
+#main-page #sidebar {
+  min-height: 100vh;
+  min-width: 15vw;
+}
+
+#main-page #sidebar .sidebar-item {
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  border: 3px solid #0d6f93;
+}
+
+#main-page #sidebar .sidebar-item:hover {
+  background-color: #09526d !important;
+  border: 3px solid #09526d;
+  border-left: 3px solid white;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+#main-page #sidebar .dropdown-menu-item {
+  padding: 20px;
+  display: none;
+}
+
+#main-page #sidebar .dropdown-menu-item a {
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+#main-page #sidebar .dropdown-menu-item a:hover {
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  color: #193141 !important;
+}
+
+#main-page .dashboard-box {
+  min-height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  gap: 10px;
+  position: relative;
+  display: block;
+}
+
+#main-page .dashboard-box .quick-view-box {
+  min-width: 285px;
+}
+
+.display-anyhow {
+  opacity: 1 !important;
+  z-index: 99;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.fancybox__content {
+  max-width: 77% !important;
+}
+
+.btn-outline-brand-primary.active {
+  background: #0d6f93;
+  color: white;
+}
+
+.fs-14px {
+  font-size: 14px;
+}
+
+.mh-100 {
+  min-height: 100%;
+}
+
+@media print {
+  #topbar, #sidebar, footer {
+    display: none !important;
+  }
+  h1, hr {
+    display: none;
+  }
+  .w-50, .w-75 {
+    width: 100% !important;
+  }
+  .alwaysbreak {
+    page-break-before: always;
+  }
+  .border {
+    border: 0px !important;
+  }
+  .p-5 {
+    padding: 0px !important;
+  }
+  .nav {
+    display: none !important;
+  }
+  .dashboard-box {
+    background: white !important;
+    padding: 0 !important;
+  }
+  .mx-3, .my-3 {
+    margin: 0 !important;
+  }
+}
+
+@media screen and (max-width: 1400px) {
+  .display-paper .w-50 {
+    width: 75% !important;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .display-paper .w-50 {
+    width: 75% !important;
+  }
+  .display-paper .w-75 {
+    width: 100% !important;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .display-paper .w-50 {
+    width: 100% !important;
+  }
+}
+
+#hideStats {
+  display: none;
+}
+
+#stats {
+  display: none;
+}
+
+a {
+  cursor: pointer;
+}
+
+.display-paper .nav .btn-outline-brand-primary {
+  border: 1px solid grey;
+  color: grey;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.display-paper .nav .btn-outline-brand-primary:hover {
+  background: white;
+  color: #0d6f93;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.display-paper .nav .active {
+  color: white;
+}
+
+.display-paper .nav .active:hover {
+  color: white;
+  background: #0d6f93;
+}
+
+.load-spinner {
+  position: fixed;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  background: white;
+}
+/*# sourceMappingURL=main.css.map */

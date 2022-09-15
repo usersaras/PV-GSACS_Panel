@@ -1,0 +1,361 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!-- Bootstrap CSS -->
+
+    <!-- Datatables -->
+    <link rel="stylesheet" href="//cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css">
+
+    <link rel="stylesheet" href="css/modified_datatable.css">
+
+    <link rel="stylesheet" href="css/responsive.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/main.css">
+
+    <style>
+
+        .table1 td{
+            width: 33.33%;
+        }
+
+        th, td{
+            padding: 7px !important;
+        }
+
+        .table2 th{
+            width: 33.33%;
+        }
+
+        .col-xl-7 .table2 td{
+            width: 50% !important;
+        }
+
+
+        td select{
+            width: 100%;
+        }
+       
+    </style>
+
+    <title>Dashboard</title>
+</head>
+
+<body>
+        <div class="load-spinner">
+                <div class="d-flex flex-column position-absolute gap-2"
+                    style="top: 50%; left: 50%; translate: transform(-50%, -50%)">
+                    <div class="spinner-border text-brand-primary" style="height: 3rem; width: 3rem" role="status">
+                        <span class="visually-hidden">Loading...</span>
+                    </div>
+                    <p>Loading</p>
+                </div>
+            </div>
+            
+        <section id="topbar" class="bg-white py-3"></section>
+
+    <section id="main-page" style="height: 100vh; background: grey;">
+        <div class="d-flex g-3 align-items-stretch">
+            <!-- Sidebar -->
+            <div class="bg-light">
+                <div id="sidebar" class="bg-brand-primary h-100">
+                </div>
+            </div>
+            <!-- Sidebar -->
+
+            <div class="bg-light dashboard-box w-100 d-flex display-paper">
+                <div class="mx-3 mt-4 mb-0">
+                        <h1 class="fs-2 text-brand-primary ">Order Acknowledgement (EDI 855)</h1>
+                        <hr />
+                </div>
+
+                <div class="mx-3 h-100 w-75">
+                        <div class="d-flex gap-0 justify-content-start mx-auto mb-3 nav">
+                                <a id="create-invoice" href="show_edi_form_new.html"
+                                    class="text-decoration-none p-2 btn-outline-brand-primary border-end-0 rounded-start text-break-none">EDI
+                                    Form</a>
+                                <a id="review-ack" data-fancybox data-type="iframe" href="create_purchase_order_ack.html"
+                                    class="text-decoration-none p-2 border-end-0 rounded-0 btn-outline-brand-primary text-break-none active">Create
+                                    Acknowledge</a>
+                                <a id="create-invoice" href="create_invoice.html"
+                                    class="text-decoration-none p-2 btn-outline-brand-primary text-break-none rounded-end">Create Invoice</a>
+                                <!-- <a href="#" class="text-decoration-none p-2 border-start-0 rounded-end btn-outline-brand-primary"
+                                    onclick="window.print()">Print</a> -->
+                            </div>
+                        
+                            
+                                <div class="mb-4">
+                                    <div class="border rounded bg-white overflow-hidden">
+                                        <div class="bg-brand-primary px-4 py-4 d-flex gap-3 align-items-end flex-wrap">
+                                            <h6 class="fs-2 fw-bolder white-mb-50 mb-0 text-white">Order Acknowledgement</h6>
+                                            <h6 class="fw-bold fs-4 mb-0 text-white">#<span id="orderNo">TESTPODS</span></h6>
+                                        </div>
+                                        <div class="clearfix"></div>
+                        
+                                        <div class="px-4 pt-4 pb-0">
+                                            <div class="row g-5">
+                                                <div class="col-md-6">
+                                                    <h6 class="text-uppercase mb-0 fw-bold">
+                                                        Buyer</h6>
+                                                    <div class="ps-4">
+                                                        <p class="mb-0">
+                                                            O & M - CHARLOTTE <br />
+                                                            P O BOX 85007<br> RICHMOND,VA,23285<br />
+                                                        </p>
+                                                    </div>
+                                                </div>
+                            
+                                                <div class="col-md-6">
+                            
+                                                    <h6 class="text-uppercase mb-0 fw-bold">
+                                                        Bill To</h6>
+                                                    <div class="ps-4">
+                                                        <p class="mb-0">
+                                                            OWENS & MINOR INC. <br />
+                                                            P O BOX 85007<br> RICHMOND,VA,23285<br />
+                                                        </p>
+                                                    </div>
+                                                </div>
+                            
+                                                <div class="col-md-6">
+                                                    <h6 class="text-uppercase mb-0 fw-bold">
+                                                        Vendor</h6>
+                                                    <div class="ps-4 d-flex align-items-stretch">
+                                                        <p class="mb-0">
+                                                            AAA-WebTest<br />
+                                                            123 Shoebox Ln , Suite 345<br> Wilmington,NC,45545<br />
+                                                        </p>
+                                                    </div>
+                                                </div>
+                            
+                                                <div class="col-md-6">
+                                                    <h6 class="text-uppercase mb-0 fw-bold">
+                                                        Ship To</h6>
+                                                    <div class="ps-4">
+                                                        <p class="mb-0">
+                                                            EISENHOWER ARMY MEDICAL CENTER-NUS<br />
+                                                            EISENHOWER ARMY MEDICAL CENTER , ATTN: MATERIAL BRANCH<br>300 W HOSPITAL RD<br>
+                                                            FORT GORDON,GA,30905-5741<br />
+                                                        </p>
+                                                    </div>
+                                                </div>
+                            
+                                            </div>
+
+                                            <div class="row gx-0 mt-5 border border-bottom-0 rounded overflow-hidden mb-0 pb-0">
+
+                                                <!-- Table 1 -->
+                                                <div class="col-xl-6">
+                                                    <div class="table-responsive">
+                                                        <table class="w-100 table1">
+                                                            <tr class="bg-brand-primary">
+                                                                <th class="text-white">Buyer</th>
+                                                                <th class="text-white">Phone</th>
+                                                                <th class="text-white">Fax</th>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>N/A</td>
+                                                                <td>N/A</td>
+                                                                <td>N/A</td>
+                                                            </tr>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                                <div class="col-xl-6">
+                                                    <div class="table-responsive">
+                                                        <table class="w-100 table1">
+                                                            <tr class="bg-brand-primary">
+                                                                <th class="text-white">Email</th>
+                                                                <th class="text-white">Account No.</th>
+                                                                <th class="text-white">Contract No.</th>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>N/A</td>
+                                                                <td>028720</td>
+                                                                <td>N/A</td>
+                                                            </tr>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                                <!-- Table 1 -->
+
+                                                <div class="col-xl-5">
+                                                    <div class="table-responsive">
+                                                        <table class="w-100 table2">
+                                                            <tr class="bg-brand-primary">
+                                                                <th class="text-white">Order No.</th>
+                                                                <th class="text-white">Order Date</th>
+                                                                <th class="text-white">Ship Date </th>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>TESTPODS</td>
+                                                                <td>05/20/2020</td>
+                                                                <td>
+                                                                    <input type="date" class="p-1 border rounded-1 w-100">
+                                                                </td>
+                                                            </tr>
+                                                        </table>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-xl-7">
+                                                    <div class="table-responsive">
+                                                        <table class="w-100 table2">
+                                                                <tr class="bg-brand-primary">
+                                                                        <th class="text-white">Ack Type</th>
+                                                                        <th class="text-white">Ack Purpose</th>
+                                                                </tr>
+                                                                <tr>
+                                                                    
+                                                                    <td class="w-50" style="width: 300px; overflow: scroll">
+                                                                            <select name="ackType" id="ackType" class="p-1 border bg-white rounded-1">
+                                                                                <option value="#">Acknowledgement - With detail and change</option>
+                                                                                <option value="#">Acknowledgement - With detail, no change</option>
+                                                                                <option value="#">Acknowledgement - Product Replenishment</option>
+                                                                            </select>
+                                                                        </td>
+                                                                        <td>
+                                                                            <select name="ackPurpose" id="ackPurpose" class="p-1 border bg-white rounded-1">
+                                                                                <option value="#">(06) Confirmation</option>
+                                                                                <option value="#">(00) Original (CRP)</option>
+                                                                            </select>
+                                                                        </td>
+                                                                </tr>
+                                                            </table>
+                                                        </div>
+                                                </div>
+
+                                                <div class="col-xl-12">
+                                                        <table class="table mb-0">
+                                                                <tr class="bg-brand-primary">
+                                        
+                                                                    <th class="text-white">Item No.</th>
+                                                                
+                                                                    <th class="text-white">Description</th>
+                                                                    <th class="text-white">Qty Order</th>
+                                                                    <th class="text-white"> Price</th>
+                                        
+                                        
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>001</td>
+                                                            
+                                                                    <td>N/A</td>
+                                                                    <td>1</td>
+                                                                    <td>$&nbsp;54.75</td>
+                                        
+                                        
+                                                                </tr>
+                                                            </table>
+                                                </div>
+
+                                                <div class="col-md-6">
+                                                    <div class="table-responsive">
+                                                        <table class="table table4 w-100 mb-0">
+                                                                <tr class="bg-brand-primary">
+                                                                    <th class="text-white w-50">Qty Shipped</th>
+                                                                    <th class="text-white w-50">Status</th>
+                                                                </tr>
+                                                                <tr>
+                                                                        <td>
+                                                                            <input type="number" name="qtyShipped" id="qtyShipped" class="p-1 border rounded-1 w-100">
+                                                                        </td>
+                                                                        <td>
+                                                                            <select name="status" id="status" class="p-1 border bg-white rounded-1 w-100">
+                                                                                <option value="IA">Item Accepted</option>
+                                                                                <option value="IA">Item Accepted and Shipped</option>
+                                                                                <option value="IA">Item Backordered</option>
+                                                                                <option value="IA">Item Accepted - Changes Made</option>
+                                                                                <option value="IA">Item on Hold</option>
+                                                                                <option value="IA">Item Accepted - Price Changed</option>
+                                                                            </select>
+                                                                        </td>
+                                                                        </tr>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="table-responsive">
+                                                        <table class="table table4 w-100 mb-0">
+                                                            <tr class="bg-brand-primary">
+                                                                <th class="text-white w-50">Issued Date</th>
+                                                                <th class="text-white w-50 text-break-none">Vendor Catalog No</th>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>
+                                                                    <input type="date" name="issuedDate" id="issuedDate" class="p-1 border rounded-1 w-100">
+                                                                </td>
+                                                                <td>
+                                                                    <input type="number" name="vendorCatNumber" id="vendorCatNumber" class="p-1 border rounded-1 w-100">
+                                                                </td>
+                                                            </tr>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                        
+                                       
+                        
+                        
+                                        <div class="d-flex gap-1 mt-2 justify-content-start flex-wrap buttons px-4 mt-1 mb-4">
+                                            <a href="#" class="btn btn-outline-brand-primary">Submit</a>
+                                        </div>
+                                    </div>
+                          
+                        
+                            </div>
+                </div>
+        
+                <footer class="bg-white py-3">
+                    <div class="container-fluid">
+                        <p class="mb-0 text-center">
+                            &copy; Copyright 2022 GSA Contract Services, LLC.
+                        </p>
+                    </div>
+                </footer>
+            </div>
+        </div>
+    </section>
+
+  
+
+    <!-- jQuery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <!-- Bootstrap JS -->
+
+    <!-- Datatables -->
+    <script src="//cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+
+    <!-- Chart.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+    <script src="js/barChart.js"></script>
+    <script src="js/pieChart.js"></script>
+
+     <!-- Components -->
+     <script src="components/topbar.js"></script>
+     <script src="components/sidebar.js"></script>
+
+
+
+    <!-- Custom JS -->
+    <script type="module" src="js/main.js"></script>
+</body>
+
+</html>

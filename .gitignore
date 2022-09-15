@@ -1,0 +1,5 @@
+#ignore scss files
+scss
+
+#ignore .vscode settings
+.vscode

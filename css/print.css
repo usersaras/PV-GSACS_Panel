@@ -1,0 +1,31 @@
+@media print {
+  #topbar, #sidebar, footer {
+    display: none !important;
+  }
+  h1, hr {
+    display: none;
+  }
+  .w-50, .w-75 {
+    width: 100% !important;
+  }
+  .alwaysbreak {
+    page-break-before: always;
+  }
+  .border {
+    border: 0px !important;
+  }
+  .p-5 {
+    padding: 0px !important;
+  }
+  .nav {
+    display: none !important;
+  }
+  .dashboard-box {
+    background: white !important;
+    padding: 0 !important;
+  }
+  .mx-3, .my-3 {
+    margin: 0 !important;
+  }
+}
+/*# sourceMappingURL=print.css.map */

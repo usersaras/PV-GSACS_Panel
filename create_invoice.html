@@ -1,0 +1,427 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!-- Bootstrap CSS -->
+
+    <!-- Datatables -->
+    <link rel="stylesheet" href="//cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css">
+
+    <link rel="stylesheet" href="css/modified_datatable.css">
+
+    <link rel="stylesheet" href="css/responsive.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/main.css">
+
+    <title>Dashboard</title>
+</head>
+
+<body>
+        <div class="load-spinner">
+                <div class="d-flex flex-column position-absolute gap-2"
+                    style="top: 50%; left: 50%; translate: transform(-50%, -50%)">
+                    <div class="spinner-border text-brand-primary" style="height: 3rem; width: 3rem" role="status">
+                        <span class="visually-hidden">Loading...</span>
+                    </div>
+                    <p>Loading</p>
+                </div>
+            </div>
+            
+    <section id="topbar" class="bg-white py-3"></section>
+
+    <section id="main-page">
+        <div class="d-flex g-3 align-items-stretch">
+            <!-- Sidebar -->
+            <div class="bg-light">
+                <div id="sidebar" class="bg-brand-primary h-100">
+                </div>
+            </div>
+            <!-- Sidebar -->
+
+            <div class="bg-light dashboard-box w-100 d-flex">
+                <div class="mx-3 mt-4 mb-0">
+                    <h1 class="fs-2 text-brand-primary ">Create Invoice (810)</h1>
+                    <hr />
+                </div>
+
+                <div class="display-paper">
+                <div class="px-3 h-100 w-75">
+                    <div class="d-flex gap-0 justify-content-start mx-auto mb-3 nav">
+                        <a id="create-invoice" href="show_edi_form_new.html"
+                            class="text-decoration-none p-2 btn-outline-brand-primary border-end-0 rounded-start text-break-none">EDI
+                            Form</a>
+                        <a id="review-ack" data-fancybox data-type="iframe" href="create_purchase_order_ack.html"
+                            class="text-decoration-none p-2 border-end-0 rounded-0 btn-outline-brand-primary text-break-none">Create
+                            Acknowledge</a>
+                        <a id="create-invoice" href="create_invoice.html"
+                            class="text-decoration-none p-2 btn-outline-brand-primary active text-break-none rounded-end">Create
+                            Invoice</a>
+                        <!-- <a href="#" class="text-decoration-none p-2 border-start-0 rounded-end btn-outline-brand-primary"
+                                    onclick="window.print()">Print</a> -->
+                    </div>
+                    <div class="border p-4 rounded bg-white">
+                        <form action="review-invoice.html">
+                            <div class="row g-3">
+                                <div class="col-md-12">
+                                    <div class="bg-brand-primary py-2 text-center">
+                                        <h5 class="mb-0 text-white ">Invoice</h5>
+                                    </div>
+                                    <div class="border p-3">
+                                        <div class="row g-3">
+                                            <div class="col-md-6">
+                                                <label for="purchaseOrderDate" class="fw-bold fs-14px mb-1">Purchase
+                                                    Order
+                                                    Date</label>
+                                                <input type="date" class="form-control">
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label for="purchaseNumber" class="fw-bold fs-14px mb-1">Purchase
+                                                    Number</label>
+                                                <input type="number" class="form-control">
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label for="shipDate" class="fw-bold fs-14px mb-1">Ship Date <span
+                                                        class="text-danger font-small">Required</span></label>
+                                                <input type="date" class="form-control">
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label for="shipmentNumber" class="fw-bold fs-14px mb-1" mb-1>Shipment
+                                                    Number</label>
+                                                <input type="number" class="form-control">
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label for="invoiceDate" class="fw-bold fs-14px mb-1">Invoice Date <span
+                                                        class="text-danger font-small">Required</span></label>
+                                                <input type="number" class="form-control">
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label for="invoiceDate" class="fw-bold fs-14px mb-1">Invoice Number
+                                                    <span class="text-danger font-small">Required</span></label>
+                                                <input type="number" class="form-control">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="bg-brand-primary py-2 text-center">
+                                        <h5 class="mb-0 text-white ">Buyer</h5>
+                                    </div>
+                                    <div class="border p-3">
+                                        <div class="row g-3">
+                                            <div class="col-md-6">
+                                                <label for="buyer" class="fw-bold fs-14px mb-1">Buyer</label>
+                                                <input type="text" class="form-control">
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label for="phone" class="fw-bold fs-14px mb-1">Phone</label>
+                                                <input type="text" class="form-control">
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label for="fax" class="fw-bold fs-14px mb-1">Fax</label>
+                                                <input type="text" class="form-control">
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label for="email" class="fw-bold fs-14px mb-1">Email</label>
+                                                <input type="text" class="form-control">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="bg-brand-primary py-2 text-center">
+                                        <h5 class="mb-0 text-white ">Supplier</h5>
+                                    </div>
+                                    <div class="border p-3">
+                                        <div class="row g-3">
+                                            <div class="col-md-6">
+                                                <label for="accountNumber" class="fw-bold fs-14px mb-1">Account
+                                                    No.</label>
+                                                <input type="text" class="form-control"
+                                                    value="American Sanitary Products, Inc." readonly>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label for="vendorName" class="fw-bold fs-14px mb-1">Vendor Name</label>
+                                                <input type="text" class="form-control"
+                                                    value="American Sanitary Products, Inc." readonly>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <label for="vendorName" class="fw-bold fs-14px mb-1">City</label>
+                                                <input type="text" class="form-control" value="Millersville" readonly>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <label for="vendorName" class="fw-bold fs-14px mb-1">State</label>
+                                                <input type="text" class="form-control" value="MD" readonly>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <label for="vendorName" class="fw-bold fs-14px mb-1">Zip</label>
+                                                <input type="number" class="form-control" value="21108" readonly>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <label for="vendorName" class="fw-bold fs-14px mb-1">Address</label>
+                                                <input type="text" class="form-control" value="303 Najoles Rd Ste 109"
+                                                    readonly>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="bg-brand-primary py-2 text-center">
+                                        <h5 class="mb-0 text-white ">Billing To</h5>
+                                    </div>
+                                    <div class="border p-3">
+                                        <div class="row g-3">
+                                            <div class="col-md-6">
+                                                <label for="accountNumber" class="fw-bold fs-14px mb-1">Account
+                                                    Number</label>
+                                                <input type="text" class="form-control" value="" readonly>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label for="vendorName" class="fw-bold fs-14px mb-1">Vendor Name</label>
+                                                <input type="text" class="form-control" value="Owens and Minor Inc."
+                                                    readonly>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label for="address" class="fw-bold fs-14px mb-1">Address</label>
+                                                <textarea class="form-control" readonly>PO BOX 85007</textarea>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label for="vendorName" class="fw-bold fs-14px mb-1">City</label>
+                                                <input type="text" class="form-control" value="Richmond" readonly>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label for="vendorName" class="fw-bold fs-14px mb-1">State</label>
+                                                <input type="text" class="form-control" value="VA" readonly>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label for="vendorName" class="fw-bold fs-14px mb-1">Zip</label>
+                                                <input type="text" class="form-control" value="23285" readonly>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="bg-brand-primary py-2 text-center">
+                                        <h5 class="mb-0 text-white ">Ship to Destination</h5>
+                                    </div>
+                                    <div class="border p-3">
+                                        <div class="row g-3">
+                                            <div class="col-md-6">
+                                                <label for="accountNumber" class="fw-bold fs-14px mb-1">Account
+                                                    Number</label>
+                                                <input type="text" class="form-control" value="92500002" readonly>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label for="vendorName" class="fw-bold fs-14px mb-1">Vendor Name</label>
+                                                <input type="text" class="form-control" value="Elemendoraf AF, 3rd"
+                                                    readonly>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label for="accountNumber" class="fw-bold fs-14px mb-1">Address</label>
+                                                <textarea class="form-control"
+                                                    readonly> Elemondoraf AFB, 673 MDSS SGSM JT Base ELMEN5955 Zeamer Ave</textarea>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label for="accountNumber" class="fw-bold fs-14px mb-1">City</label>
+                                                <input type="text" class="form-control" value="Anchorage" readonly>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label for="accountNumber" class="fw-bold fs-14px mb-1">State</label>
+                                                <input type="text" class="form-control" value="AK" readonly>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label for="accountNumber" class="fw-bold fs-14px mb-1">Zip</label>
+                                                <input type="text" class="form-control" value="99506-3702" readonly>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="bg-brand-primary py-2 text-center">
+                                        <h5 class="mb-0 text-white ">Invoice Items</h5>
+                                    </div>
+                                 
+                                    <div class="border p-3">
+                                        <div class="table-responsive">
+                                            <table class="table align-middle">
+                                                <tr>
+                                                    <th class="text-break-none">Line No.</th>
+                                                    <th>Quantity</th>
+                                                    <th>Unit</th>
+                                                    <th class="text-break-none">Item No.</th>
+                                                    <th>Description</th>
+                                                    <th class="text-break-none">Unit Price</th>
+                                                    <th>Amount</th>
+                                                </tr>
+                                                <tr>
+                                                    <td><p class="mb-0 w-50">001</p></td>
+                                                    <td>
+                                                        <input type="number" name="#" id="#" value="0" min="0"
+                                                            class="p-1 rounded-1 border w-50">
+                                                    </td>
+                                                    <td>
+                                                        <input type="text" name="#" id="#" value="CA" min="0"
+                                                            class="p-1 rounded-1 border w-50">
+                                                    </td>
+                                                    <td>
+                                                        <input type="number" name="#" id="#" value="0287689670"
+                                                            class="p-1 rounded-1 border w-100">
+                                                    </td>
+                                                    <td>
+                                                        <textarea name="#" id="#" value="0" min="0"
+                                                            class="p-1 rounded-1 border w-100">N/A</textarea>
+                                                    </td>
+                                                    <td>
+                                                        <div class="d-flex gap-1 align-items-center">
+                                                            $<input type="text" name="#" id="#" value="93.03" min="0"
+                                                                class="p-1 rounded-1 border w-75">
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        $0.00
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="6" class="text-end">Subtotal</td>
+                                                    <td>$0.00</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-break-none">
+                                                        Shipping Indicator
+                                                    </td>
+                                                    <td>
+                                                        <select name="#" id="#" class="p-1 bg-white border rounded-1">
+                                                            <option value="charge">Charge</option>
+                                                            <option value="charge">Allowance</option>
+                                                        </select>
+                                                    </td>
+                                                    <td class="text-break-none">
+                                                        Shipping Code
+                                                    </td>
+                                                    <td colspan="1" style=>
+                                                        <select name="#" id="#" class="p-1 bg-white border rounded-1">
+                                                            <option value="D240">D240 Freight</option>
+                                                        </select>
+                                                    </td>
+                                                    <td colspan="2" class="text-end">
+                                                        Shipping
+                                                    </td>
+                                                    <td>
+                                                        <div class="d-flex align-items-center gap-1">
+                                                            $ <input type="number" name="#" id="#" value="0.00"
+                                                                class="border p-1 rounded-1" style="width: 75px;">
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="col-md-12">
+                                    <p class="fw-bold mb-2 mb-0">Terms of Sale/Deferred Terms of Sale <span
+                                            class="text-danger font-small"> Required</span></p>
+
+                                    <div class="d-flex gap-3">
+                                        <div class="d-flex gap-1">
+                                            <input type="radio" name="discount" id="discount">
+                                            <label for="discount">Discount</label>
+                                        </div>
+                                        <div class="d-flex gap-1">
+                                            <input type="radio" name="non_discount">
+                                            <label for="discount">Non Discount</label>
+                                        </div>
+                                    </div>
+
+                                    <div class="d-flex align-items-center gap-3 mt-2 flex-wrap">
+                                        <div>
+                                            <div class="d-flex gap-1 align-items-center">
+                                                <input type="mumber" class="p-1 rounded-1 border">%
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div class="d-flex gap-1 align-items-center">
+                                                <input type="mi,ber" class="p-1 rounded-1 border"> Days, Net
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div class="d-flex gap-1 align-items-center">
+                                                <input type="text" class="p-1 rounded-1 border"> Days
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <hr />
+                                <div class="col-md-12">
+                                    <p class="mb-0 fw-bold mb-2">Carrier Details</p>
+                                    <textarea name="#" id="" class="form-control" rows="3"></textarea>
+                                </div>
+
+                                <div class="col-md-12">
+                                    <div class="d-dlex gap-2">
+                                        <button class="btn btn-brand-primary">Submit</button>
+                                        <a href="review-created-invoice.html" class="btn btn-outline-brand-primary">Review</a>
+                                        <input type="reset" class="btn btn-outline-danger" />
+                                    </div>
+                                </div>
+
+                            </div>
+                        </form>
+
+
+                    </div>
+                </div>
+            </div>
+                <footer class="bg-white py-3">
+                    <div class="container-fluid">
+                        <p class="mb-0 text-center">
+                            &copy; Copyright 2022 GSA Contract Services, LLC.
+                        </p>
+                    </div>
+                </footer>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- jQuery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <!-- Bootstrap JS -->
+
+    <!-- Datatables -->
+    <script src="//cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+
+    <!-- Chart.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+    <script src="js/barChart.js"></script>
+    <script src="js/pieChart.js"></script>
+
+    <!-- Components -->
+    <script src="components/topbar.js"></script>
+    <script src="components/sidebar.js"></script>
+
+
+
+    <!-- Custom JS -->
+    <script type="module" src="js/main.js"></script>
+</body>
+
+</html>
