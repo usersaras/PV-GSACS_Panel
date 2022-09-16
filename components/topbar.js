@@ -1,4 +1,4 @@
-$(window).ready(()=>{
+export default function topbar(){
     $("#topbar").html(`<div class="container-fluid ps-0">
     <div class="d-flex align-items-center">
          <div class="vw-15" id="viewWidth15">
@@ -35,4 +35,5 @@ $(window).ready(()=>{
      </div>
      </div>
  </div>
- </div>`)})
+ </div>`)
+}

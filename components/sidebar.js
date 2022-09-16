@@ -1,4 +1,4 @@
-$(window).ready(()=>{
+export default function sidebar(){
     $("#sidebar").html(`
                     <a href="index.html" class="text-decoration-none text-white d-block p-3 sidebar-item">
                         <i class="fa fa-home me-2" aria-hidden="true"></i>
@@ -44,4 +44,4 @@ $(window).ready(()=>{
                     </span>
 
                 `)
-})
+            }

@@ -152,6 +152,29 @@
   min-height: 100%;
 }
 
+.nav .btn-outline-brand-primary {
+  border: 1px solid grey;
+  color: grey;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.nav .btn-outline-brand-primary:hover {
+  color: #0d6f93;
+  background: white;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.nav .active {
+  color: white;
+}
+
+.nav .active:hover {
+  background: #0d6f93;
+  color: white;
+}
+
 @media print {
   #topbar, #sidebar, footer {
     display: none !important;
@@ -183,6 +206,79 @@
   }
 }
 
+.load-spinner {
+  position: fixed;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  background: white;
+}
+
+@media screen and (max-width: 1367px) {
+  #topbar p:first-of-type {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 1199px) {
+  #sidebar {
+    position: absolute;
+    z-index: 99;
+    display: none;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .profile-image {
+    display: none !important;
+  }
+  #topbar p.mb-0 {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  #sidebar {
+    width: 50vw;
+  }
+  #topbar .col-md-3 {
+    -webkit-box-pack: center !important;
+        -ms-flex-pack: center !important;
+            justify-content: center !important;
+  }
+  #topbar .col-md-3 p:first-of-type {
+    display: block;
+  }
+  #topSearch {
+    position: absolute;
+    width: 60%;
+    right: 0;
+    top: 12%;
+    opacity: 0;
+    -webkit-transition: 0.3s;
+    transition: 0.3s;
+  }
+  #topSearch.w-100 {
+    width: 100% !important;
+    padding: 0 7px;
+  }
+}
+
+@media screen and (max-width: 502px) {
+  #topbar .btn-outline-danger {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 475px) {
+  #sidebar {
+    width: 100vw;
+    height: 100vh;
+  }
+}
+
 @media screen and (max-width: 1400px) {
   .display-paper .w-50 {
     width: 75% !important;
@@ -202,50 +298,5 @@
   .display-paper .w-50 {
     width: 100% !important;
   }
-}
-
-#hideStats {
-  display: none;
-}
-
-#stats {
-  display: none;
-}
-
-a {
-  cursor: pointer;
-}
-
-.display-paper .nav .btn-outline-brand-primary {
-  border: 1px solid grey;
-  color: grey;
-  -webkit-transition: 0.3s;
-  transition: 0.3s;
-}
-
-.display-paper .nav .btn-outline-brand-primary:hover {
-  background: white;
-  color: #0d6f93;
-  -webkit-transition: 0.3s;
-  transition: 0.3s;
-}
-
-.display-paper .nav .active {
-  color: white;
-}
-
-.display-paper .nav .active:hover {
-  color: white;
-  background: #0d6f93;
-}
-
-.load-spinner {
-  position: fixed;
-  left: 0px;
-  top: 0px;
-  width: 100%;
-  height: 100%;
-  z-index: 9999;
-  background: white;
 }
 /*# sourceMappingURL=main.css.map */

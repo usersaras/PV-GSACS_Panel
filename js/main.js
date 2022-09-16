@@ -1,4 +1,9 @@
 import toggleSidebar from "./partials/toggleSidebar.js";
+import sidebar from "../components/sidebar.js"
+import topbar from "../components/topbar.js"
+
+sidebar()
+topbar()
 $(window).ready(()=>{
     $('.load-spinner').fadeOut(235);       
 })

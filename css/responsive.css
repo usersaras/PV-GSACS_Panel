@@ -60,4 +60,25 @@
     height: 100vh;
   }
 }
+
+@media screen and (max-width: 1400px) {
+  .display-paper .w-50 {
+    width: 75% !important;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .display-paper .w-50 {
+    width: 75% !important;
+  }
+  .display-paper .w-75 {
+    width: 100% !important;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .display-paper .w-50 {
+    width: 100% !important;
+  }
+}
 /*# sourceMappingURL=responsive.css.map */
